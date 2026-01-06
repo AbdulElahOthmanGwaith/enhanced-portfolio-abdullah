@@ -1,7 +1,7 @@
 /*
   ╔══════════════════════════════════════════════════════════════════╗
   ║          عبدالاله عثمان غويث - الملف الرئيسي للتفاعلات          ║
-  ║          Abdullah Othman Ghawaith - Main JavaScript File         ║
+  ║          Abdulelah Othman Ghawaith - Main JavaScript File         ║
   ║                                                                  ║
   ║          الإصدار: 2.0                                             ║
   ║          التاريخ: يناير 2025                                      ║
@@ -142,7 +142,7 @@
 
       // Hero Section
       'hero.greeting': 'Hello, I am',
-      'hero.title': 'Abdullah Othman Ghawaith',
+      'hero.title': 'Abdulelah Othman Ghawaith',
       'hero.subtitle': 'Web Developer & UI Designer',
       'hero.description': 'I design and develop modern, high-quality websites and web applications with a focus on user experience and superior performance.',
       'hero.cta.primary': 'View My Work',
@@ -189,7 +189,7 @@
       'contact.form.reset': 'Reset',
 
       // Footer
-      'footer.brand': 'Abdullah Othman Ghawaith',
+      'footer.brand': 'Abdulelah Othman Ghawaith',
       'footer.tagline': 'Professional Web Developer & UI Designer',
       'footer.quick_links': 'Quick Links',
       'footer.services': 'Services',

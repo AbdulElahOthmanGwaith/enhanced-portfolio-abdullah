@@ -1,0 +1,12 @@
+{
+  "name": "enhanced-portfolio-abdullah",
+  "version": "1.0.0",
+  "description": "Enhanced Portfolio for Abdullah Othman Ghawaith",
+  "main": "script.js",
+  "scripts": {
+    "test": "node test.js",
+    "lint": "echo 'No linter configured yet'"
+  },
+  "author": "Abdullah Othman Ghawaith",
+  "license": "MIT"
+}

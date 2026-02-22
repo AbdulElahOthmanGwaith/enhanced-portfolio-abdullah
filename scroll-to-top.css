@@ -1,0 +1,110 @@
+/*
+  ╔══════════════════════════════════════════════════════════════════╗
+  ║          Scroll to Top Button Styles                             ║
+  ║          أنماط زر العودة للأعلى                                   ║
+  ╚══════════════════════════════════════════════════════════════════╝
+*/
+
+.scroll-to-top-btn {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--color-primary), var(--color-primary-light));
+  color: var(--text-inverse);
+  border: none;
+  cursor: pointer;
+  font-size: 24px;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(20px);
+  transition: all var(--transition-normal);
+  box-shadow: var(--shadow-lg);
+  z-index: 999;
+  outline: none;
+}
+
+/* RTL Support */
+[dir="rtl"] .scroll-to-top-btn {
+  right: auto;
+  left: 30px;
+}
+
+.scroll-to-top-btn.visible {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.scroll-to-top-btn:hover {
+  background: linear-gradient(135deg, var(--color-primary-hover), var(--color-primary));
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-xl);
+}
+
+.scroll-to-top-btn:active {
+  transform: translateY(-2px);
+}
+
+/* Dark mode support */
+body.dark-mode .scroll-to-top-btn {
+  background: linear-gradient(135deg, var(--color-primary-light), var(--color-primary));
+  box-shadow: var(--shadow-glow);
+}
+
+body.dark-mode .scroll-to-top-btn:hover {
+  background: linear-gradient(135deg, var(--color-primary), var(--color-primary-dark));
+  box-shadow: var(--shadow-xl), var(--shadow-glow);
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .scroll-to-top-btn {
+    width: 45px;
+    height: 45px;
+    bottom: 20px;
+    right: 20px;
+    font-size: 20px;
+  }
+
+  [dir="rtl"] .scroll-to-top-btn {
+    left: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .scroll-to-top-btn {
+    width: 40px;
+    height: 40px;
+    bottom: 15px;
+    right: 15px;
+    font-size: 18px;
+  }
+
+  [dir="rtl"] .scroll-to-top-btn {
+    left: 15px;
+  }
+}
+
+/* Accessibility - Focus state */
+.scroll-to-top-btn:focus-visible {
+  outline: 3px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  .scroll-to-top-btn {
+    transition: opacity var(--transition-fast), visibility var(--transition-fast);
+  }
+
+  .scroll-to-top-btn:hover {
+    transform: none;
+  }
+}

@@ -1,12 +1,39 @@
 {
   "name": "enhanced-portfolio-abdullah",
-  "version": "1.0.0",
-  "description": "Enhanced Portfolio for Abdulelah Othman Ghawaith",
+  "version": "2.0.0",
+  "description": "Enhanced Portfolio for Abdulelah Othman Ghawaith - A modern, responsive portfolio website with advanced features",
   "main": "script.js",
   "scripts": {
     "test": "node test.js",
-    "lint": "echo 'No linter configured yet'"
+    "lint": "echo 'ESLint and Stylelint can be configured here'",
+    "serve": "python3 -m http.server 8000",
+    "build": "echo 'Build process can be configured here'",
+    "validate": "node test.js && echo 'All validations passed!'"
   },
+  "keywords": [
+    "portfolio",
+    "web-developer",
+    "ui-designer",
+    "responsive",
+    "modern",
+    "javascript",
+    "css3",
+    "html5",
+    "abdulelah",
+    "ghawaith"
+  ],
   "author": "Abdulelah Othman Ghawaith",
-  "license": "MIT"
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/AbdulElahOthmanGwaith/enhanced-portfolio-abdullah.git"
+  },
+  "bugs": {
+    "url": "https://github.com/AbdulElahOthmanGwaith/enhanced-portfolio-abdullah/issues"
+  },
+  "homepage": "https://abdulelahothmangwaith.github.io/enhanced-portfolio-abdullah/",
+  "devDependencies": {},
+  "engines": {
+    "node": ">=14.0.0"
+  }
 }

@@ -184,7 +184,7 @@
           <h1 class="hero-title">
             <span class="text-gradient">عبدالاله عثمان</span> غويث
           </h1>
-          <h2 class="hero-subtitle">مطور ويب ومصمم واجهات مستخدم</h2>
+          <h2 class="hero-subtitle"><span id="typing-text"></span><span class="cursor">|</span></h2>
           <p class="hero-description">
             أقوم بتصميم وتطوير مواقع وتطبيقات ويب حديثة وعالية الجودة مع التركيز على تجربة المستخدم والأداء المتفوق. أحول أفكارك إلى واقع رقمي مذهل.
           </p>
@@ -219,7 +219,7 @@
             <div class="hero-image-wrapper">
               <img src="assets/profile-photo.jpg" alt="عبدالاله عثمان غويث - مطور ويب ومصمم واجهات"
                    class="profile-photo"
-                   onerror="this.onerror=null; this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 400 400\'%3E%3Crect width=\'400\' height=\'400\' fill=\'%234f46e5\'/%3E%3Ctext x=\'200\' y=\'200\' text-anchor=\'middle\' fill=\'white\' font-size=\'60\'%3Eعبدالاله%3C/text%3E%3C/svg%3E';">>
+                   onerror="this.onerror=null; this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 400 400\'%3E%3Crect width=\'400\' height=\'400\' fill=\'%234f46e5\'/%3E%3Ctext x=\'200\' y=\'200\' text-anchor=\'middle\' fill=\'white\' font-size=\'60\'%3Eعبدالاله%3C/text%3E%3C/svg%3E';">
             </div>
             <div class="hero-shapes">
               <div class="shape shape-1"></div>
@@ -266,38 +266,67 @@
     </div>
   </section>
 
+  <!-- Testimonials Section (New Enhancement) -->
+  <section id="testimonials" class="testimonials-section">
+    <div class="container">
+      <h2 class="section-title reveal fade-bottom" data-i18n="testimonials.title">آراء العملاء</h2>
+      <p class="section-subtitle reveal fade-bottom" data-i18n="testimonials.subtitle">ماذا يقول شركاء النجاح عن تجربة العمل معي</p>
+      
+      <div class="testimonials-grid">
+        <div class="testimonial-card reveal fade-bottom">
+          <div class="testimonial-content">
+            <p>"عمل احترافي ومتقن، عبدالإله لديه قدرة رائعة على تحويل الأفكار المعقدة إلى واجهات بسيطة وسهلة الاستخدام."</p>
+          </div>
+          <div class="testimonial-author">
+            <div class="author-info">
+              <h4 class="author-name">أحمد محمد</h4>
+              <p class="author-role">مدير مشروع تقني</p>
+            </div>
+          </div>
+        </div>
+        
+        <div class="testimonial-card reveal fade-bottom">
+          <div class="testimonial-content">
+            <p>"التزام تام بالمواعيد وجودة عالية في الكود البرمجي. أنصح بشدة بالتعامل معه في مشاريع الويب الكبيرة."</p>
+          </div>
+          <div class="testimonial-author">
+            <div class="author-info">
+              <h4 class="author-name">سارة خالد</h4>
+              <p class="author-role">رائدة أعمال</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- Projects Section -->
   <section id="projects" class="projects-section">
     <div class="container">
       <h2 class="section-title reveal fade-bottom">مشاريعي</h2>
       <p class="section-subtitle reveal fade-bottom">بعض من أعمالي السابقة التي نفخر بها والتي تظهر قدرتي على تحويل الأفكار إلى واقع ملموس</p>
 
-      <div class="projects-grid">
-        <div class="project-card reveal fade-bottom" onclick="Modal.create({id: 'project1', title: 'متجر إلكتروني متكامل', content: '<img src=\'data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 400 250\'%3E%3Crect width=\'400\' height=\'250\' fill=\'%23f8fafc\'/%3E%3Crect x=\'20\' y=\'20\' width=\'360\' height=\'210\' rx=\'10\' fill=\'%234f46e5\' opacity=\'0.2\'/%3E%3Ctext x=\'200\' y=\'125\' text-anchor=\'middle\' fill=\'%234f46e5\' font-size=\'40\'%3E🛒%3C/text%3E%3C/svg%3E\' class=\'modal-image\' style=\'width:100%;border-radius:10px;margin-bottom:1rem;\'/><p style=\'color:var(--text-secondary);line-height:1.8\'>متجر إلكتروني متكامل مع بوابة دفع وإدارة مخزون ونظام ولاء العملاء.</p><div style=\'display:flex;gap:8px;flex-wrap:wrap;margin-top:1rem;\'><span style=\'padding:4px 12px;background:rgba(79,70,229,0.1);color:#4f46e5;border-radius:20px;font-size:12px;\'>React</span><span style=\'padding:4px 12px;background:rgba(79,70,229,0.1);color:#4f46e5;border-radius:20px;font-size:12px;\'>Node.js</span><span style=\'padding:4px 12px;background:rgba(79,70,229,0.1);color:#4f46e5;border-radius:20px;font-size:12px;\'>MongoDB</span></div>', size: 'lg'})">
-          <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 250'%3E%3Crect width='400' height='250' fill='%23f8fafc'/%3E%3Crect x='20' y='20' width='360' height='210' rx='10' fill='%234f46e5' opacity='0.2'/%3E%3Ctext x='200' y='125' text-anchor='middle' fill='%234f46e5' font-size='40'%3E🛒%3C/text%3E%3C/svg%3E" alt="متجر إلكتروني" class="project-image">
-          <div class="project-content">
-            <div class="project-tags">
-              <span class="project-tag">React</span>
-              <span class="project-tag">Node.js</span>
-              <span class="project-tag">E-commerce</span>
-            </div>
-            <h3 class="project-title">متجر إلكتروني متكامل</h3>
-            <p class="project-description">متجر إلكتروني متكامل مع بوابة دفع وإدارة مخزون ونظام ولاء العملاء متكامل.</p>
-          </div>
-        </div>
+      <div class="projects-filter reveal fade-bottom">
+        <button class="filter-btn active" data-filter="all">الكل</button>
+        <button class="filter-btn" data-filter="web">تطوير الويب</button>
+        <button class="filter-btn" data-filter="design">تصميم واجهات</button>
+        <button class="filter-btn" data-filter="mobile">تطبيقات الجوال</button>
+      </div>
 
-        <div class="project-card reveal fade-bottom" onclick="Modal.create({id: 'project2', title: 'تطبيق إدارة مهام', content: '<img src=\'data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 400 250\'%3E%3Crect width=\'400\' height=\'250\' fill=\'%23f8fafc\'/%3E%3Crect x=\'20\' y=\'20\' width=\'360\' height=\'210\' rx=\'10\' fill=\'%23f59e0b\' opacity=\'0.2\'/%3E%3Ctext x=\'200\' y=\'125\' text-anchor=\'middle\' fill=\'%23f59e0b\' font-size=\'40\'%3E📋%3C/text%3E%3C/svg%3E\' class=\'modal-image\' style=\'width:100%;border-radius:10px;margin-bottom:1rem;\'/><p style=\'color:var(--text-secondary);line-height:1.8\'>تطبيق لإدارة المهام والمشاريع مع ميزة التعاون في الوقت الفعلي.</p><div style=\'display:flex;gap:8px;flex-wrap:wrap;margin-top:1rem;\'><span style=\'padding:4px 12px;background:rgba(245,158,11,0.1);color:#f59e0b;border-radius:20px;font-size:12px;\'>Vue.js</span><span style=\'padding:4px 12px;background:rgba(245,158,11,0.1);color:#f59e0b;border-radius:20px;font-size:12px;\'>Firebase</span></div>', size: 'lg'})">
-          <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 250'%3E%3Crect width='400' height='250' fill='%23f8fafc'/%3E%3Crect x='20' y='20' width='360' height='210' rx='10' fill='%23f59e0b' opacity='0.2'/%3E%3Ctext x='200' y='125' text-anchor='middle' fill='%23f59e0b' font-size='40'%3E📋%3C/text%3E%3C/svg%3E" alt="تطبيق إدارة مهام" class="project-image">
-          <div class="project-content">
-            <div class="project-tags">
-              <span class="project-tag">Vue.js</span>
-              <span class="project-tag">Firebase</span>
-              <span class="project-tag">Tasks</span>
-            </div>
-            <h3 class="project-title">تطبيق إدارة مهام</h3>
-            <p class="project-description">تطبيق لإدارة المهام والمشاريع مع ميزة التعاون في الوقت الفعلي وإشعارات فورية.</p>
-          </div>
-        </div>
+      <div class="projects-grid">
+        <!-- سيتم تحميل المشاريع ديناميكياً بواسطة JavaScript -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Skills Section -->
+  <section id="skills" class="skills-section">
+    <div class="container">
+      <h2 class="section-title reveal fade-bottom">مهاراتي</h2>
+      <p class="section-subtitle reveal fade-bottom">التقنيات والأدوات التي أستخدمها لبناء حلول رقمية متميزة</p>
+
+      <div class="skills-grid">
+        <!-- سيتم تحميل المهارات ديناميكياً بواسطة JavaScript -->
       </div>
     </div>
   </section>
@@ -307,66 +336,102 @@
     <div class="container">
       <h2 class="section-title reveal fade-bottom">تواصل معي</h2>
       <p class="section-subtitle reveal fade-bottom">لديك فكرة مشروع؟ دعنا نتحدث عنها ونحولها إلى واقع</p>
-      
-      <div class="contact-grid">
+
+      <div class="contact-wrapper">
         <div class="contact-info reveal fade-right">
-          <div class="info-item">
-            <div class="info-icon">📧</div>
-            <div class="info-text">
+          <div class="contact-info-item">
+            <div class="contact-info-icon">📧</div>
+            <div class="contact-info-content">
               <h4>البريد الإلكتروني</h4>
               <p>contact@abdullah-ghawaith.com</p>
             </div>
           </div>
-          <div class="info-item">
-            <div class="info-icon">📱</div>
-            <div class="info-text">
+
+          <div class="contact-info-item">
+            <div class="contact-info-icon">📱</div>
+            <div class="contact-info-content">
               <h4>الهاتف</h4>
               <p>+966 50 000 0000</p>
             </div>
           </div>
+
+          <div class="social-links">
+            <a href="#" class="social-link">GitHub</a>
+            <a href="#" class="social-link">LinkedIn</a>
+            <a href="#" class="social-link">Twitter</a>
+          </div>
         </div>
-        
-        <form class="contact-form reveal fade-left" onsubmit="event.preventDefault(); alert('تم إرسال رسالتك بنجاح!');">
-          <div class="form-group">
-            <input type="text" placeholder="الاسم الكامل" required>
-          </div>
-          <div class="form-group">
-            <input type="email" placeholder="البريد الإلكتروني" required>
-          </div>
-          <div class="form-group">
-            <textarea placeholder="رسالتك" rows="5" required></textarea>
-          </div>
-          <button type="submit" class="btn btn-primary btn-block">إرسال الرسالة</button>
-        </form>
+
+        <div class="contact-form-container reveal fade-left">
+          <form id="contact-form" class="contact-form">
+            <div class="form-group">
+              <input type="text" id="name" name="name" placeholder="الاسم الكامل" required>
+            </div>
+            <div class="form-group">
+              <input type="email" id="email" name="email" placeholder="البريد الإلكتروني" required>
+            </div>
+            <div class="form-group">
+              <textarea id="message" name="message" placeholder="رسالتك" rows="5" required></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary btn-block">إرسال الرسالة</button>
+          </form>
+        </div>
       </div>
     </div>
   </section>
 
+  <!-- Footer -->
   <footer class="footer">
     <div class="container">
-      <p>&copy; 2025 عبدالاله عثمان غويث. جميع الحقوق محفوظة.</p>
+      <div class="footer-content">
+        <div class="footer-brand">
+          <div class="logo">
+            <div class="logo-icon">ع</div>
+            <span class="logo-text">عبدالاله غويث</span>
+          </div>
+          <p>مطور ويب ومصمم واجهات مستخدم محترف يسعى دائماً لتقديم الأفضل في عالم الحلول الرقمية.</p>
+        </div>
+
+        <div class="footer-links">
+          <h4>روابط سريعة</h4>
+          <ul>
+            <li><a href="#home">الرئيسية</a></li>
+            <li><a href="#services">الخدمات</a></li>
+            <li><a href="#projects">المشاريع</a></li>
+            <li><a href="#skills">المهارات</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; 2025 عبدالاله عثمان غويث. جميع الحقوق محفوظة.</p>
+      </div>
     </div>
   </footer>
 
+  <!-- Scroll to Top -->
+  <button id="scroll-to-top-btn" class="scroll-to-top-btn" title="العودة للأعلى">↑</button>
+
+  <!-- Settings Panel -->
+  <div id="settings-panel" class="settings-panel">
+    <div class="settings-panel-header">
+      <h3>الإعدادات</h3>
+      <button class="settings-close" onclick="SettingsPanel.close()">✕</button>
+    </div>
+    <div class="settings-panel-body">
+      <div class="setting-item">
+        <label>المظهر</label>
+        <div class="theme-options">
+          <button class="theme-option active" onclick="ThemeManager.setTheme('light')">فاتح</button>
+          <button class="theme-option" onclick="ThemeManager.setTheme('dark')">داكن</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scripts -->
   <script src="script.js"></script>
   <script src="scroll-to-top.js"></script>
   <script src="form-validation.js"></script>
-  <script>
-    // إضافة منطق الـ Reveal عند التمرير
-    function reveal() {
-      var reveals = document.querySelectorAll(".reveal");
-      for (var i = 0; i < reveals.length; i++) {
-        var windowHeight = window.innerHeight;
-        var elementTop = reveals[i].getBoundingClientRect().top;
-        var elementVisible = 150;
-        if (elementTop < windowHeight - elementVisible) {
-          reveals[i].classList.add("active");
-        }
-      }
-    }
-    window.addEventListener("scroll", reveal);
-    // تشغيلها مرة واحدة عند التحميل
-    window.addEventListener("load", reveal);
-  </script>
 </body>
 </html>

@@ -65,6 +65,10 @@
       'service.consulting': 'استشارات تقنية',
       'service.consulting_desc': 'تقديم استشارات متخصصة في اختيار التقنيات المناسبة لمشروعك.',
 
+      // Testimonials
+      'testimonials.title': 'آراء العملاء',
+      'testimonials.subtitle': 'ماذا يقول شركاء النجاح عن تجربة العمل معي',
+
       // Projects
       'projects.title': 'مشاريعي',
       'projects.subtitle': 'بعض من أعمالنا السابقة التي نفخر بها',
@@ -162,6 +166,10 @@
       'service.mobile_desc': 'Developing native and hybrid mobile applications for iOS and Android.',
       'service.consulting': 'Technical Consulting',
       'service.consulting_desc': 'Providing specialized consulting on choosing the right technologies for your project.',
+
+      // Testimonials
+      'testimonials.title': 'Testimonials',
+      'testimonials.subtitle': 'What success partners say about working with me',
 
       // Projects
       'projects.title': 'My Projects',
@@ -1506,6 +1514,7 @@
     InteractiveTools.init();
     Animations.init();
     ProgressBars.init();
+    TypingEffect.init();
     LoadingManager.init();
     ContentProtection.init();
     EventHandlers.init();

@@ -513,6 +513,11 @@
 
       // تحديث زر اللغة
       this.updateLanguageButton();
+
+      // إعادة رسم كتالوج المشاريع عند تبديل اللغة بعد تهيئته.
+      if (typeof ProjectCatalog !== 'undefined' && ProjectCatalog.ready) {
+        ProjectCatalog.render();
+      }
     },
 
     updateTextContent() {
@@ -1399,8 +1404,166 @@
   };
 
   // ═══════════════════════════════════════════════════════════════════
-  // القسم الثامن عشر: الأحداث
-  // Section 18: Event Handlers
+  // القسم الثامن عشر: كتالوج المشاريع
+  // Section 18: Project Catalog
+  // ═══════════════════════════════════════════════════════════════════
+
+  const ProjectCatalog = {
+    ready: false,
+    container: null,
+    activeFilter: 'all',
+    filters: [],
+    projects: [
+      {
+        category: 'web',
+        status: 'active',
+        short: 'AC',
+        title: { ar: 'Asserag Clone', en: 'Asserag Clone' },
+        description: { ar: 'منصة ثنائية اللغة للمصانع الطبية مع خرائط وتدفقات تواصل محسّنة.', en: 'A bilingual platform for medical manufacturers with resilient maps and contact flows.' },
+        technologies: ['React', 'TypeScript', 'Vite'],
+        repo: 'https://github.com/AbdulElahOthmanGwaith/asserag-clone'
+      },
+      {
+        category: 'tools',
+        status: 'active',
+        short: 'AG',
+        title: { ar: 'Auto-Guardian-Core', en: 'Auto-Guardian-Core' },
+        description: { ar: 'أداة فحص وتغليف أمني للكود مع CLI وتقارير JSON وSARIF قابلة للدمج مع CI.', en: 'A secure code verification and packaging tool with CLI, JSON, and SARIF CI reports.' },
+        technologies: ['Python', 'CLI', 'SARIF'],
+        repo: 'https://github.com/AbdulElahOthmanGwaith/Auto-Guardian-Core'
+      },
+      {
+        category: 'web',
+        status: 'production',
+        short: 'AW',
+        title: { ar: 'Auto-Guardian Website', en: 'Auto-Guardian Website' },
+        description: { ar: 'واجهة عرض لنظام الأمان مع نموذج تواصل قابل للتهيئة واختبارات ثابتة.', en: 'A security-system showcase with a configurable contact flow and static verification.' },
+        technologies: ['HTML', 'CSS', 'Vite'],
+        repo: 'https://github.com/AbdulElahOthmanGwaith/auto-guardian-website'
+      },
+      {
+        category: 'web',
+        status: 'active',
+        short: 'NP',
+        title: { ar: 'Nebras Platform', en: 'Nebras Platform' },
+        description: { ar: 'منصة عربية متعددة المشاريع مع اختبارات بنية وروابط قابلة لإعادة التشغيل.', en: 'An Arabic multi-project platform with reproducible structure and link checks.' },
+        technologies: ['HTML', 'Playwright', 'CI'],
+        repo: 'https://github.com/AbdulElahOthmanGwaith/nebras-platform'
+      },
+      {
+        category: 'web',
+        status: 'active',
+        short: 'PF',
+        title: { ar: 'Enhanced Portfolio', en: 'Enhanced Portfolio' },
+        description: { ar: 'محفظة شخصية ثنائية اللغة مع تحسينات وصول وPWA وبيانات مشاريع قابلة للعرض.', en: 'A bilingual personal portfolio with accessibility, PWA, and verifiable project data.' },
+        technologies: ['HTML', 'CSS', 'JavaScript'],
+        repo: 'https://github.com/AbdulElahOthmanGwaith/enhanced-portfolio-abdullah'
+      },
+      {
+        category: 'web',
+        status: 'prototype',
+        short: 'CH',
+        title: { ar: 'ConnectHub', en: 'ConnectHub' },
+        description: { ar: 'نموذج واجهة اجتماعية أمامية مع فحص smoke واضح وحدود إنتاجية موثقة.', en: 'A frontend social interface prototype with explicit smoke checks and documented production limits.' },
+        technologies: ['HTML', 'CSS', 'JavaScript'],
+        repo: 'https://github.com/AbdulElahOthmanGwaith/my-website-project'
+      }
+    ],
+
+    init() {
+      this.container = Utils.$('.projects-grid');
+      this.filters = Array.from(document.querySelectorAll('.filter-btn'));
+      if (!this.container) return;
+      this.ready = true;
+      this.bindFilters();
+      this.render();
+    },
+
+    bindFilters() {
+      this.filters.forEach((button) => {
+        button.addEventListener('click', () => {
+          this.activeFilter = button.dataset.filter || 'all';
+          this.filters.forEach((item) => {
+            item.classList.toggle('active', item === button);
+            item.setAttribute('aria-pressed', item === button ? 'true' : 'false');
+          });
+          this.render();
+        });
+      });
+    },
+
+    render() {
+      if (!this.container) return;
+      const lang = AppState.language === 'ar' ? 'ar' : 'en';
+      const statusLabels = {
+        production: { ar: 'جاهز للعرض', en: 'Portfolio-ready' },
+        active: { ar: 'قيد التطوير', en: 'Active development' },
+        prototype: { ar: 'نموذج تجريبي', en: 'Prototype' }
+      };
+      const labels = {
+        repository: lang === 'ar' ? 'المستودع' : 'Repository',
+        categoryWeb: lang === 'ar' ? 'تطوير الويب' : 'Web development',
+        categoryTools: lang === 'ar' ? 'أدوات هندسية' : 'Engineering tools'
+      };
+
+      this.container.replaceChildren();
+      this.projects
+        .filter((project) => this.activeFilter === 'all' || project.category === this.activeFilter)
+        .forEach((project) => {
+          const card = document.createElement('article');
+          card.className = 'project-card reveal fade-bottom';
+          card.dataset.category = project.category;
+
+          const image = document.createElement('div');
+          image.className = 'project-image project-image-placeholder';
+          image.setAttribute('role', 'img');
+          image.setAttribute('aria-label', project.title[lang]);
+          image.textContent = project.short;
+
+          const content = document.createElement('div');
+          content.className = 'project-content';
+
+          const tags = document.createElement('div');
+          tags.className = 'project-tags';
+          const status = document.createElement('span');
+          status.className = `project-tag project-status project-status-${project.status}`;
+          status.textContent = statusLabels[project.status][lang];
+          tags.appendChild(status);
+          project.technologies.forEach((technology) => {
+            const tag = document.createElement('span');
+            tag.className = 'project-tag';
+            tag.textContent = technology;
+            tags.appendChild(tag);
+          });
+
+          const title = document.createElement('h3');
+          title.className = 'project-title';
+          title.textContent = project.title[lang];
+          const description = document.createElement('p');
+          description.className = 'project-description';
+          description.textContent = project.description[lang];
+
+          const links = document.createElement('div');
+          links.className = 'project-links';
+          const repository = document.createElement('a');
+          repository.className = 'btn btn-primary';
+          repository.href = project.repo;
+          repository.target = '_blank';
+          repository.rel = 'noopener noreferrer';
+          repository.textContent = labels.repository;
+          repository.setAttribute('aria-label', `${labels.repository}: ${project.title[lang]}`);
+          links.appendChild(repository);
+
+          content.append(tags, title, description, links);
+          card.append(image, content);
+          this.container.appendChild(card);
+        });
+    }
+  };
+
+  // ═══════════════════════════════════════════════════════════════════
+  // القسم التاسع عشر: الأحداث
+  // Section 19: Event Handlers
   // ═══════════════════════════════════════════════════════════════════
 
   const EventHandlers = {
@@ -1448,6 +1611,7 @@
     Navigation.init();
     SettingsPanel.init();
     Modal.init();
+    ProjectCatalog.init();
     ImageViewer.init();
     // FormValidator هو المعالج الوحيد لنموذج الاتصال لتجنب الإرسال المزدوج.
     CodeEditor.init();
@@ -1488,6 +1652,7 @@
   window.Navigation = Navigation;
   window.SettingsPanel = SettingsPanel;
   window.Modal = Modal;
+  window.ProjectCatalog = ProjectCatalog;
   window.ImageViewer = ImageViewer;
   window.CodeEditor = CodeEditor;
   window.AIChat = AIChat;

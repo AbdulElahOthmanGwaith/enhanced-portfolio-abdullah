@@ -37,6 +37,12 @@ assert(index.includes('https://abdulelahothmangwaith.github.io/enhanced-portfoli
 assert(index.includes('https://github.com/AbdulElahOthmanGwaith'), 'portfolio must link to the verified GitHub account');
 assert(!index.includes('wa.me/966500000000'), 'unverified WhatsApp placeholder must not remain');
 assert(!index.includes('abdullah-ghawaith.com/images/'), 'social metadata must not reference missing image paths');
+assert(index.includes('data-filter="tools"'), 'portfolio must expose the engineering tools filter');
+assert(index.includes('aria-pressed="true"'), 'portfolio filters must expose pressed state');
+assert(script.includes('const ProjectCatalog = {'), 'project catalog must be defined');
+assert(script.includes('Auto-Guardian-Core'), 'project catalog must include the verified engineering tool');
+assert(script.includes('ProjectCatalog.init();'), 'project catalog must initialize with the application');
+assert(script.includes('noopener noreferrer'), 'project links must use safe external-link attributes');
 assert(fs.existsSync(path.join(root, 'assets/profile-image.svg')), 'manifest icon must exist');
 
 console.log('All enhanced portfolio static checks passed.');

@@ -32,6 +32,11 @@ assert(manifest.start_url === './', 'manifest start_url must be relative for pro
 assert(manifest.scope === './', 'manifest scope must be relative for project pages');
 assert(serviceWorker.includes("const CACHE_NAME = 'portfolio-v2';"), 'service worker cache must be versioned');
 assert(serviceWorker.includes("new URL(asset, self.registration.scope)"), 'service worker assets must use deployment scope');
+assert(index.includes('navigator.serviceWorker.register(\'./service-worker.js\')'), 'service worker registration must be relative for project pages');
+assert(index.includes('https://abdulelahothmangwaith.github.io/enhanced-portfolio-abdullah/'), 'canonical portfolio URL must match the verified GitHub Pages deployment');
+assert(index.includes('https://github.com/AbdulElahOthmanGwaith'), 'portfolio must link to the verified GitHub account');
+assert(!index.includes('wa.me/966500000000'), 'unverified WhatsApp placeholder must not remain');
+assert(!index.includes('abdullah-ghawaith.com/images/'), 'social metadata must not reference missing image paths');
 assert(fs.existsSync(path.join(root, 'assets/profile-image.svg')), 'manifest icon must exist');
 
 console.log('All enhanced portfolio static checks passed.');

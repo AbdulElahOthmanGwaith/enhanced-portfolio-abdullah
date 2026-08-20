@@ -100,7 +100,6 @@
 
     // Validate a single field
     validateField(field) {
-      const fieldName = field.getAttribute('placeholder')?.toLowerCase() || field.name;
       const value = field.value.trim();
       const rules = this.getFieldRules(field);
 
@@ -130,20 +129,15 @@
 
     // Get validation rules for a field
     getFieldRules(field) {
-      const placeholder = field.getAttribute('placeholder')?.toLowerCase() || '';
-      
-      if (placeholder.includes('اسم') || placeholder.includes('name')) return this.rules.name;
-      if (placeholder.includes('بريد') || placeholder.includes('email')) return this.rules.email;
-      if (placeholder.includes('موضوع') || placeholder.includes('subject')) return this.rules.subject;
-      if (placeholder.includes('رسالة') || placeholder.includes('message')) return this.rules.message;
-      
-      return null;
+      const fieldName = field.name || field.id;
+      return this.rules[fieldName] || null;
     },
 
     // Show error message
     showError(field, message) {
       field.classList.add(this.config.errorClass);
       field.classList.remove(this.config.successClass);
+      field.setAttribute('aria-invalid', 'true');
 
       // Remove existing error message
       const existingError = field.parentElement.querySelector(`.${this.config.errorMessageClass}`);
@@ -161,6 +155,7 @@
     clearError(field) {
       field.classList.remove(this.config.errorClass);
       field.classList.add(this.config.successClass);
+      field.setAttribute('aria-invalid', 'false');
 
       const errorDiv = field.parentElement.querySelector(`.${this.config.errorMessageClass}`);
       if (errorDiv) errorDiv.remove();
@@ -170,7 +165,7 @@
     handleSuccess() {
       const successMessage = document.createElement('div');
       successMessage.className = 'form-success-message';
-      successMessage.textContent = 'تم إرسال رسالتك بنجاح! شكراً لتواصلك معنا. / Your message has been sent successfully! Thank you for contacting us.';
+      successMessage.textContent = 'تم التحقق من الرسالة محلياً. أضف endpoint في إعدادات النشر لإرسالها فعلياً. / Message validated locally. Configure a deployment endpoint to deliver it.';
       successMessage.setAttribute('role', 'status');
 
       // Insert success message

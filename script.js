@@ -760,47 +760,8 @@
     },
 
     createPanel() {
-      const panel = Utils.createElement('div', {
-        className: 'settings-panel',
-        id: 'settingsPanel'
-      });
-
-      panel.innerHTML = `
-        <div class="settings-header">
-          <h3 class="settings-title">${LanguageManager.t('settings.title')}</h3>
-          <button class="settings-close" onclick="SettingsPanel.close()">✕</button>
-        </div>
-        <div class="settings-body">
-          <div class="settings-section">
-            <h4 class="settings-section-title">${LanguageManager.t('settings.theme')}</h4>
-            <div class="settings-item">
-              <span class="settings-item-label">${LanguageManager.t('settings.theme.light')}</span>
-              <div class="theme-toggle" onclick="ThemeManager.setTheme('light')">
-                <div class="theme-toggle-thumb">☀️</div>
-              </div>
-            </div>
-            <div class="settings-item">
-              <span class="settings-item-label">${LanguageManager.t('settings.theme.dark')}</span>
-              <div class="theme-toggle ${AppState.theme === 'dark' ? 'active' : ''}" onclick="ThemeManager.setTheme('dark')">
-                <div class="theme-toggle-thumb">🌙</div>
-              </div>
-            </div>
-          </div>
-          <div class="settings-section">
-            <h4 class="settings-section-title">${LanguageManager.t('settings.language')}</h4>
-            <div class="settings-item">
-              <span class="settings-item-label">العربية</span>
-              <button class="btn btn-sm ${AppState.language === 'ar' ? 'btn-primary' : 'btn-outline'}" onclick="LanguageManager.setLanguage('ar')">AR</button>
-            </div>
-            <div class="settings-item">
-              <span class="settings-item-label">English</span>
-              <button class="btn btn-sm ${AppState.language === 'en' ? 'btn-primary' : 'btn-outline'}" onclick="LanguageManager.setLanguage('en')">EN</button>
-            </div>
-          </div>
-        </div>
-      `;
-
-      document.body.appendChild(panel);
+      // تستخدم الصفحة لوحة إعدادات ثابتة؛ لا تنشئ نسخة ثانية بمعرّف DOM مكرر.
+      return Utils.$('#settingsPanel, #settings-panel');
     },
 
     bindEvents() {
@@ -827,7 +788,7 @@
     },
 
     open() {
-      const panel = Utils.$('#settingsPanel');
+      const panel = Utils.$('#settingsPanel, #settings-panel');
       if (panel) {
         panel.classList.add('active');
         AppState.settingsPanelOpen = true;
@@ -835,7 +796,7 @@
     },
 
     close() {
-      const panel = Utils.$('#settingsPanel');
+      const panel = Utils.$('#settingsPanel, #settings-panel');
       if (panel) {
         panel.classList.remove('active');
         AppState.settingsPanelOpen = false;
@@ -1008,7 +969,7 @@
 
   const ContactForm = {
     init() {
-      const form = Utils.$('#contactForm');
+      const form = Utils.$('#contact-form');
       if (form) {
         form.addEventListener('submit', (e) => {
           e.preventDefault();
@@ -1433,27 +1394,7 @@
 
   const ContentProtection = {
     init() {
-      // تعطيل النقر بزر الفأرة الأيمن
-      document.addEventListener('contextmenu', (e) => {
-        if (e.target.tagName !== 'INPUT' && e.target.tagName !== 'TEXTAREA') {
-          e.preventDefault();
-        }
-      });
-
-      // منع نسخ الصور
-      document.addEventListener('copy', (e) => {
-        const selection = window.getSelection();
-        if (selection.toString().length > 0) {
-          // السماح بنسخ النص العادي
-        } else {
-          e.preventDefault();
-        }
-      });
-
-      // عرض رسالة عند محاولة النسخ
-      document.addEventListener('contextmenu', () => {
-        Utils.showNotification('المحتوى محمي من النسخ', 'info');
-      });
+      // لا نعطّل النسخ أو قائمة السياق؛ ذلك يضر الوصول وتجربة المستخدم ولا يوفر حماية حقيقية.
     }
   };
 
@@ -1508,7 +1449,7 @@
     SettingsPanel.init();
     Modal.init();
     ImageViewer.init();
-    ContactForm.init();
+    // FormValidator هو المعالج الوحيد لنموذج الاتصال لتجنب الإرسال المزدوج.
     CodeEditor.init();
     AIChat.init();
     InteractiveTools.init();

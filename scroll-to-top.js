@@ -28,14 +28,19 @@
 
     // Create the scroll-to-top button
     createButton() {
-      const button = document.createElement('button');
-      button.id = this.config.buttonId;
-      button.className = 'scroll-to-top-btn';
-      button.innerHTML = '↑';
-      button.title = 'العودة للأعلى / Back to Top';
-      button.setAttribute('aria-label', 'العودة للأعلى');
-      
-      document.body.appendChild(button);
+      let button = document.getElementById(this.config.buttonId);
+
+      if (!button) {
+        button = document.createElement('button');
+        button.id = this.config.buttonId;
+        button.className = 'scroll-to-top-btn';
+        button.type = 'button';
+        button.innerHTML = '↑';
+        button.title = 'العودة للأعلى / Back to Top';
+        button.setAttribute('aria-label', 'العودة للأعلى');
+        document.body.appendChild(button);
+      }
+
       this.button = button;
     },
 
